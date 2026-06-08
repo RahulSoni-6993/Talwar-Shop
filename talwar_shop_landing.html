@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agra Blade Co. — Handcrafted Swords & Talwars</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FAF8F4;
+  --warm-white: #FFFFFF;
+  --sand: #F0EBE1;
+  --sand-dark: #E2D9CC;
+  --brown: #6B4C2A;
+  --brown-light: #8B6340;
+  --gold: #B8892A;
+  --gold-light: #D4A843;
+  --gold-pale: #F5EDD8;
+  --charcoal: #1C1C1C;
+  --slate: #4A4A4A;
+  --muted: #888880;
+  --border: #E0D8CE;
+  --red: #8B2020;
+  --green: #2A5C2A;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.1);
+  --shadow-lg: 0 24px 64px rgba(0,0,0,0.14);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+button { font-family: 'Outfit', sans-serif; border: none; cursor: pointer; }
+
+/* ── ANNOUNCE BAR ── */
+.announce {
+  background: var(--charcoal);
+  color: var(--sand);
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+}
+.announce span { color: var(--gold-light); }
+
+/* ── NAV ── */
+nav {
+  background: var(--warm-white);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 200;
+  padding: 0 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px;
+  box-shadow: var(--shadow-sm);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 700;
+  color: var(--charcoal); letter-spacing: 0.04em;
+}
+.nav-logo em { color: var(--gold); font-style: normal; }
+.nav-center { display: flex; gap: 32px; list-style: none; }
+.nav-center a {
+  font-size: 13.5px; color: var(--slate); letter-spacing: 0.02em;
+  transition: color 0.2s; padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.nav-center a:hover { color: var(--charcoal); border-bottom-color: var(--gold); }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.nav-icon {
+  width: 38px; height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; cursor: pointer;
+  transition: all 0.2s; background: transparent; color: var(--slate);
+  position: relative;
+}
+.nav-icon:hover { border-color: var(--gold); color: var(--gold); }
+.cart-badge {
+  position: absolute; top: -6px; right: -6px;
+  background: var(--gold); color: white;
+  font-size: 10px; font-weight: 600;
+  width: 18px; height: 18px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+}
+.btn-nav {
+  background: var(--charcoal); color: var(--warm-white);
+  padding: 9px 22px; border-radius: 8px;
+  font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+  transition: all 0.2s;
+}
+.btn-nav:hover { background: var(--gold); }
+
+/* ── HERO ── */
+.hero {
+  background: var(--cream);
+  min-height: calc(100vh - 108px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+.hero-left {
+  padding: 80px 64px 80px 80px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold-pale);
+  border: 1px solid rgba(184,137,42,0.3);
+  color: var(--gold);
+  font-size: 11.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 6px 14px; border-radius: 20px;
+  margin-bottom: 28px;
+  width: fit-content;
+  animation: fadeUp 0.7s ease both;
+}
+.hero-badge::before {
+  content: ''; width: 6px; height: 6px;
+  background: var(--gold); border-radius: 50%;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 5.5vw, 78px);
+  font-weight: 700; line-height: 1.05;
+  color: var(--charcoal);
+  margin-bottom: 20px;
+  animation: fadeUp 0.7s 0.1s ease both;
+}
+.hero h1 em {
+  font-style: italic; color: var(--gold);
+}
+.hero-desc {
+  font-size: 16px; color: var(--slate); line-height: 1.75;
+  max-width: 460px; margin-bottom: 40px;
+  animation: fadeUp 0.7s 0.2s ease both;
+}
+.hero-btns {
+  display: flex; gap: 14px; margin-bottom: 56px;
+  animation: fadeUp 0.7s 0.3s ease both;
+}
+.btn-primary {
+  background: var(--charcoal); color: white;
+  padding: 15px 34px; border-radius: 8px;
+  font-size: 14px; font-weight: 500; letter-spacing: 0.04em;
+  transition: all 0.25s; display: flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { background: var(--gold); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(184,137,42,0.3); }
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--charcoal);
+  padding: 15px 34px; border-radius: 8px;
+  font-size: 14px; font-weight: 500; letter-spacing: 0.04em;
+  transition: all 0.25s;
+}
+.btn-outline:hover { border-color: var(--charcoal); transform: translateY(-1px); }
+.hero-trust {
+  display: flex; gap: 32px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+  animation: fadeUp 0.7s 0.4s ease both;
+}
+.trust-item { display: flex; align-items: center; gap: 10px; }
+.trust-icon { font-size: 20px; }
+.trust-text { font-size: 12.5px; color: var(--muted); line-height: 1.4; }
+.trust-text strong { display: block; color: var(--charcoal); font-size: 13.5px; font-weight: 500; }
+
+.hero-right {
+  background: var(--sand);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-right-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 40%, rgba(184,137,42,0.1) 0%, transparent 70%);
+}
+.hero-img-wrap {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 100%;
+  padding: 60px;
+}
+.hero-sword-svg {
+  width: 200px;
+  animation: floatSword 5s ease-in-out infinite;
+  filter: drop-shadow(0 20px 60px rgba(0,0,0,0.15));
+}
+@keyframes floatSword {
+  0%,100% { transform: translateY(0) rotate(-8deg); }
+  50% { transform: translateY(-18px) rotate(-8deg); }
+}
+.hero-price-tag {
+  position: absolute; bottom: 100px; left: 40px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  box-shadow: var(--shadow-md);
+  animation: fadeUp 0.7s 0.5s ease both;
+}
+.price-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.price-val { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 700; color: var(--charcoal); margin-top: 2px; }
+.price-val span { font-size: 14px; color: var(--muted); text-decoration: line-through; margin-left: 6px; font-family: 'Outfit', sans-serif; font-weight: 400; }
+.hero-rating-tag {
+  position: absolute; top: 80px; right: 32px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: var(--shadow-md);
+  display: flex; align-items: center; gap: 10px;
+  animation: fadeUp 0.7s 0.6s ease both;
+}
+.stars { color: #F5A623; font-size: 14px; letter-spacing: 2px; }
+.rating-text { font-size: 12px; color: var(--muted); }
+.rating-num { font-size: 15px; font-weight: 600; color: var(--charcoal); }
+
+/* ── MARQUEE ── */
+.marquee-bar {
+  background: var(--sand-dark);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0; overflow: hidden;
+}
+.marquee-track {
+  display: flex; animation: marquee 25s linear infinite; white-space: nowrap;
+}
+.marquee-item {
+  display: inline-flex; align-items: center; gap: 16px;
+  padding: 0 28px; font-size: 12px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--brown);
+  flex-shrink: 0;
+}
+.mdot { width: 3px; height: 3px; background: var(--gold); border-radius: 50%; }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ── STATS ── */
+.stats-bar {
+  background: var(--charcoal);
+  padding: 48px 80px;
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 0;
+}
+.stat-item {
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  padding: 8px 0;
+}
+.stat-item:last-child { border-right: none; }
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px; font-weight: 700;
+  color: var(--gold-light); line-height: 1;
+}
+.stat-label { font-size: 12.5px; color: rgba(255,255,255,0.5); margin-top: 6px; letter-spacing: 0.04em; }
+
+/* ── SECTION COMMON ── */
+.section { padding: 90px 80px; }
+.section-tag {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 11.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 14px;
+}
+.section-tag::before { content:''; width:32px; height:1.5px; background:var(--gold); }
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 3.5vw, 50px); font-weight: 700;
+  line-height: 1.1; color: var(--charcoal);
+}
+.section-sub { font-size: 15px; color: var(--muted); margin-top: 12px; max-width: 480px; line-height: 1.7; }
+
+/* ── CATEGORIES ── */
+.categories { padding: 60px 80px 0; }
+.cat-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 40px; }
+.cat-card {
+  background: var(--warm-white);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 20px;
+  text-align: center; cursor: pointer;
+  transition: all 0.3s;
+  position: relative; overflow: hidden;
+}
+.cat-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s;
+}
+.cat-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.cat-card:hover::after { transform: scaleX(1); }
+.cat-icon { font-size: 44px; margin-bottom: 14px; display: block; }
+.cat-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+.cat-count { font-size: 12px; color: var(--muted); }
+
+/* ── PRODUCTS ── */
+.products { background: var(--sand); padding: 90px 80px; }
+.products-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+.view-all {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13.5px; font-weight: 500; color: var(--gold);
+  border-bottom: 1px solid var(--gold); padding-bottom: 2px;
+  transition: gap 0.2s;
+}
+.view-all:hover { gap: 10px; }
+.products-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+.product-card {
+  background: var(--warm-white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s; cursor: pointer;
+}
+.product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.prod-img {
+  aspect-ratio: 4/5;
+  background: var(--sand);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.prod-emoji {
+  font-size: 72px;
+  transition: transform 0.4s;
+}
+.product-card:hover .prod-emoji { transform: scale(1.1) rotate(-5deg); }
+.prod-badge {
+  position: absolute; top: 12px; left: 12px;
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 6px;
+}
+.badge-best { background: var(--charcoal); color: white; }
+.badge-new { background: var(--green); color: white; }
+.badge-sale { background: var(--red); color: white; }
+.prod-wishlist {
+  position: absolute; top: 12px; right: 12px;
+  width: 34px; height: 34px;
+  background: white; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; box-shadow: var(--shadow-sm);
+  opacity: 0; transform: translateY(-6px);
+  transition: all 0.3s;
+}
+.product-card:hover .prod-wishlist { opacity: 1; transform: translateY(0); }
+.prod-info { padding: 18px; }
+.prod-cat { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+.prod-name { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 600; margin-bottom: 4px; line-height: 1.2; }
+.prod-material { font-size: 12.5px; color: var(--muted); margin-bottom: 14px; }
+.prod-footer { display: flex; align-items: center; justify-content: space-between; }
+.prod-price { font-size: 20px; font-weight: 600; color: var(--charcoal); }
+.prod-price-old { font-size: 13px; color: var(--muted); text-decoration: line-through; margin-left: 6px; font-weight: 400; }
+.prod-add {
+  background: var(--charcoal); color: white;
+  width: 36px; height: 36px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; transition: all 0.2s;
+  border: none; cursor: pointer;
+}
+.prod-add:hover { background: var(--gold); }
+.prod-stars { display: flex; align-items: center; gap: 4px; margin-bottom: 10px; }
+.prod-stars span { font-size: 12px; color: var(--muted); }
+
+/* ── FEATURED ── */
+.featured { padding: 90px 80px; background: var(--cream); }
+.featured-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border-radius: 24px; overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.featured-img {
+  background: linear-gradient(135deg, #2C1810, #5C3820);
+  display: flex; align-items: center; justify-content: center;
+  padding: 80px 60px;
+  position: relative; overflow: hidden; min-height: 480px;
+}
+.featured-img::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 60% 40%, rgba(184,137,42,0.2), transparent 60%);
+}
+.feat-sword { font-size: 140px; position: relative; z-index:1;
+  animation: floatSword 4s ease-in-out infinite; }
+.featured-content {
+  background: var(--charcoal);
+  padding: 72px 56px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.feat-tag {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px; font-weight: 500;
+}
+.feat-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px,3vw,46px); font-weight: 700; color: white;
+  line-height: 1.1; margin-bottom: 18px;
+}
+.feat-title em { color: var(--gold-light); font-style: italic; }
+.feat-desc { font-size: 14.5px; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 32px; }
+.feat-specs { display: flex; gap: 28px; margin-bottom: 36px; }
+.spec { font-size: 13px; color: rgba(255,255,255,0.5); }
+.spec strong { display: block; color: white; font-size: 15px; margin-bottom: 2px; }
+.feat-price-row { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+.feat-price { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 700; color: var(--gold-light); }
+.feat-price-old { font-size: 18px; color: rgba(255,255,255,0.3); text-decoration: line-through; }
+.btn-gold {
+  background: var(--gold); color: white;
+  padding: 15px 36px; border-radius: 10px;
+  font-size: 14px; font-weight: 600; letter-spacing: 0.04em;
+  transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px;
+  width: fit-content;
+}
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(184,137,42,0.4); }
+
+/* ── FEATURES ── */
+.features { background: var(--sand); padding: 90px 80px; }
+.features-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; margin-top: 52px; }
+.feat-card {
+  background: var(--warm-white);
+  border-radius: 16px;
+  padding: 32px 28px;
+  border: 1.5px solid var(--border);
+  transition: all 0.3s;
+}
+.feat-card:hover { border-color: var(--gold); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.feat-ico {
+  width: 52px; height: 52px;
+  background: var(--gold-pale);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; margin-bottom: 20px;
+}
+.feat-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.feat-card p { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+
+/* ── PROCESS ── */
+.process { padding: 90px 80px; background: var(--cream); }
+.process-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 0; margin-top: 56px; position: relative; align-items: start; }
+.process-grid::before {
+  content: '';
+  position: absolute; top: 36px; left: 10%; right: 10%;
+  height: 1px;
+  background: repeating-linear-gradient(to right, var(--border) 0, var(--border) 8px, transparent 8px, transparent 16px);
+}
+.proc-step { text-align: center; padding: 0 16px; }
+.proc-num {
+  width: 72px; height: 72px;
+  background: var(--warm-white);
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 700; color: var(--charcoal);
+  margin: 0 auto 20px;
+  position: relative; z-index: 1;
+  transition: all 0.3s;
+}
+.proc-step:hover .proc-num { border-color: var(--gold); color: var(--gold); box-shadow: 0 0 0 6px var(--gold-pale); }
+.proc-icon { font-size: 22px; margin-bottom: 2px; }
+.proc-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--charcoal); }
+.proc-desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+/* ── TESTIMONIALS ── */
+.testimonials { background: var(--sand); padding: 90px 80px; }
+.testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 52px; }
+.testi-card {
+  background: var(--warm-white);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1.5px solid var(--border);
+  transition: all 0.3s;
+}
+.testi-card:hover { border-color: var(--gold-light); box-shadow: var(--shadow-md); }
+.testi-quote { font-size: 40px; color: var(--gold-pale); line-height: 1; margin-bottom: 12px; font-family: Georgia, serif; }
+.testi-text { font-size: 14.5px; color: var(--slate); line-height: 1.75; margin-bottom: 24px; font-style: italic; }
+.testi-stars { color: #F5A623; font-size: 13px; letter-spacing: 3px; margin-bottom: 16px; }
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--gold-pale);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+.testi-name { font-size: 14px; font-weight: 600; }
+.testi-city { font-size: 12px; color: var(--muted); }
+
+/* ── CUSTOM ORDER CTA ── */
+.custom-cta {
+  padding: 0 80px 90px;
+  background: var(--sand);
+}
+.custom-inner {
+  background: linear-gradient(135deg, var(--charcoal) 0%, #2C2410 100%);
+  border-radius: 24px;
+  padding: 72px 80px;
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 60px; align-items: center;
+  position: relative; overflow: hidden;
+}
+.custom-inner::before {
+  content: '⚔';
+  position: absolute; right: 300px; top: 50%;
+  transform: translateY(-50%) rotate(30deg);
+  font-size: 300px; opacity: 0.04; color: var(--gold);
+  pointer-events: none;
+}
+.custom-tag { font-size: 11px; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
+.custom-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3vw, 44px); font-weight: 700; color: white;
+  line-height: 1.15; margin-bottom: 16px;
+}
+.custom-title em { color: var(--gold-light); font-style: italic; }
+.custom-desc { font-size: 14.5px; color: rgba(255,255,255,0.55); line-height: 1.7; max-width: 500px; }
+.custom-btns { display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; }
+.btn-whatsapp {
+  background: #25D366; color: white;
+  padding: 16px 32px; border-radius: 10px;
+  font-size: 14px; font-weight: 600;
+  display: flex; align-items: center; gap: 10px;
+  white-space: nowrap; transition: all 0.25s;
+}
+.btn-whatsapp:hover { background: #20B858; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.35); }
+.btn-ghost {
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.7);
+  padding: 14px 32px; border-radius: 10px;
+  font-size: 13.5px; font-weight: 500;
+  text-align: center; transition: all 0.25s;
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── NEWSLETTER ── */
+.newsletter {
+  background: var(--gold-pale);
+  border-top: 1px solid rgba(184,137,42,0.2);
+  border-bottom: 1px solid rgba(184,137,42,0.2);
+  padding: 60px 80px;
+  display: flex; align-items: center; justify-content: space-between; gap: 40px;
+}
+.nl-text h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 700; color: var(--charcoal); margin-bottom: 6px;
+}
+.nl-text p { font-size: 14px; color: var(--muted); }
+.nl-form { display: flex; gap: 0; max-width: 420px; width: 100%; }
+.nl-input {
+  flex: 1;
+  padding: 14px 18px;
+  border: 1.5px solid var(--border);
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+  font-size: 14px; font-family: 'Outfit', sans-serif;
+  background: white; outline: none;
+  color: var(--charcoal);
+}
+.nl-input:focus { border-color: var(--gold); }
+.nl-btn {
+  background: var(--charcoal); color: white;
+  padding: 14px 24px;
+  border-radius: 0 10px 10px 0;
+  font-size: 13.5px; font-weight: 500;
+  white-space: nowrap; transition: background 0.2s;
+}
+.nl-btn:hover { background: var(--gold); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--charcoal);
+  color: rgba(255,255,255,0.7);
+  padding: 72px 80px 32px;
+}
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 56px; margin-bottom: 56px; }
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; font-weight: 700; color: white; margin-bottom: 12px;
+}
+.footer-logo em { color: var(--gold-light); font-style: normal; }
+.footer-about { font-size: 13.5px; line-height: 1.75; margin-bottom: 24px; color: rgba(255,255,255,0.5); }
+.footer-socials { display: flex; gap: 10px; }
+.social-btn {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; cursor: pointer; transition: all 0.2s;
+  background: transparent;
+}
+.social-btn:hover { border-color: var(--gold); color: var(--gold); }
+.footer-col h4 { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 13.5px; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold-light); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 28px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-copy { font-size: 12.5px; color: rgba(255,255,255,0.3); }
+.footer-payments { display: flex; gap: 8px; align-items: center; }
+.pay-chip {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px; padding: 4px 10px;
+  font-size: 11px; color: rgba(255,255,255,0.5);
+}
+
+/* ── STICKY WHATSAPP ── */
+.wa-float {
+  position: fixed; bottom: 28px; right: 28px;
+  width: 56px; height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+  box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+  z-index: 500; cursor: pointer;
+  animation: waBounce 3s ease-in-out infinite;
+  transition: transform 0.2s;
+}
+.wa-float:hover { transform: scale(1.1); }
+@keyframes waBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(24px); }
+  to { opacity:1; transform:translateY(0); }
+}
+.reveal { opacity:0; transform:translateY(32px); transition:all 0.65s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-d1 { transition-delay:0.1s; }
+.reveal-d2 { transition-delay:0.2s; }
+.reveal-d3 { transition-delay:0.3s; }
+.reveal-d4 { transition-delay:0.35s; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .hero { grid-template-columns:1fr; min-height:auto; }
+  .hero-left { padding:60px 40px; }
+  .hero-right { min-height:360px; }
+  nav { padding:0 24px; }
+  .nav-center { display:none; }
+  .section,.products,.featured,.features,.process,.testimonials,.custom-cta,.newsletter { padding-left:24px; padding-right:24px; }
+  .categories { padding-left:24px; padding-right:24px; }
+  .cat-grid { grid-template-columns:repeat(2,1fr); }
+  .products-grid { grid-template-columns:repeat(2,1fr); }
+  .stats-bar { padding:40px 24px; grid-template-columns:repeat(2,1fr); gap:24px; }
+  .stat-item { border-right:none; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:20px; }
+  .features-grid { grid-template-columns:repeat(2,1fr); }
+  .footer-grid { grid-template-columns:1fr 1fr; gap:32px; }
+  .process-grid { grid-template-columns:repeat(3,1fr); gap:32px; }
+  .process-grid::before { display:none; }
+  .testi-grid { grid-template-columns:1fr; }
+  .custom-inner { grid-template-columns:1fr; padding:40px; }
+  .custom-inner::before { display:none; }
+  .newsletter { flex-direction:column; gap:24px; padding:40px 24px; }
+  .featured-inner { grid-template-columns:1fr; }
+  .footer-grid { grid-template-columns:1fr; }
+  .footer-bottom { flex-direction:column; gap:16px; text-align:center; }
+}
+@media(max-width:600px){
+  .hero-btns { flex-direction:column; }
+  .hero-trust { flex-direction:column; gap:16px; }
+  .cat-grid,.products-grid,.features-grid { grid-template-columns:1fr; }
+  .stats-bar { grid-template-columns:1fr; }
+  .process-grid { grid-template-columns:1fr 1fr; }
+  .hero-price-tag,.hero-rating-tag { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Sticky WhatsApp -->
+<div class="wa-float" title="Chat on WhatsApp">💬</div>
+
+<!-- Announce bar -->
+<div class="announce">
+  🚚 Free India Post shipping on orders above <span>₹5,000</span> &nbsp;·&nbsp; ✨ Custom engraving available on all swords
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Agra <em>Blade</em> Co.</div>
+  <ul class="nav-center">
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#custom">Custom Order</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-icon" title="Search">🔍</button>
+    <button class="nav-icon" title="Wishlist">♡</button>
+    <button class="nav-icon" title="Cart">
+      🛒
+      <span class="cart-badge">3</span>
+    </button>
+    <button class="btn-nav">Order Now</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">Since 1962 · Agra, UP</div>
+    <h1>Handcrafted<br><em>Swords &</em><br>Talwars</h1>
+    <p class="hero-desc">Three generations of master craftsmen forging authentic blades from the heart of Agra. Every sword tells a story — let us craft yours.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+        Shop Collection →
+      </button>
+      <button class="btn-outline" onclick="document.getElementById('custom').scrollIntoView({behavior:'smooth'})">
+        Custom Order
+      </button>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <span class="trust-icon">🛡️</span>
+        <div class="trust-text">
+          <strong>100% Authentic</strong>
+          Genuine steel, verified
+        </div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">🚚</span>
+        <div class="trust-text">
+          <strong>India Post Delivery</strong>
+          Pan-India shipping
+        </div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">↩️</span>
+        <div class="trust-text">
+          <strong>Easy Returns</strong>
+          7-day return policy
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-bg"></div>
+    <div class="hero-img-wrap">
+      <svg class="hero-sword-svg" viewBox="0 0 160 520" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="blade" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#A0A0A0"/>
+            <stop offset="35%" style="stop-color:#D4A843;stop-opacity:0.6"/>
+            <stop offset="50%" style="stop-color:#F0F0F0"/>
+            <stop offset="100%" style="stop-color:#707070"/>
+          </linearGradient>
+          <linearGradient id="handle" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#5A3210"/>
+            <stop offset="50%" style="stop-color:#9B6B30"/>
+            <stop offset="100%" style="stop-color:#3A2010"/>
+          </linearGradient>
+          <filter id="dropshadow">
+            <feDropShadow dx="4" dy="8" stdDeviation="8" flood-color="rgba(0,0,0,0.25)"/>
+          </filter>
+        </defs>
+        <!-- Blade -->
+        <polygon points="80,8 68,340 92,340" fill="url(#blade)" filter="url(#dropshadow)"/>
+        <!-- Fuller groove -->
+        <line x1="80" y1="24" x2="80" y2="320" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+        <!-- Guard -->
+        <rect x="44" y="336" width="72" height="12" rx="5" fill="#B8892A"/>
+        <rect x="50" y="342" width="60" height="4" rx="2" fill="#D4A843" opacity="0.6"/>
+        <!-- Handle -->
+        <rect x="68" y="348" width="24" height="96" rx="5" fill="url(#handle)"/>
+        <!-- Handle wrap -->
+        <line x1="68" y1="362" x2="92" y2="362" stroke="#B8892A" stroke-width="1.5" opacity="0.7"/>
+        <line x1="68" y1="376" x2="92" y2="376" stroke="#B8892A" stroke-width="1.5" opacity="0.7"/>
+        <line x1="68" y1="390" x2="92" y2="390" stroke="#B8892A" stroke-width="1.5" opacity="0.7"/>
+        <line x1="68" y1="404" x2="92" y2="404" stroke="#B8892A" stroke-width="1.5" opacity="0.7"/>
+        <line x1="68" y1="418" x2="92" y2="418" stroke="#B8892A" stroke-width="1.5" opacity="0.7"/>
+        <line x1="68" y1="432" x2="92" y2="432" stroke="#B8892A" stroke-width="1.5" opacity="0.7"/>
+        <!-- Pommel -->
+        <ellipse cx="80" cy="450" rx="18" ry="12" fill="#B8892A"/>
+        <ellipse cx="80" cy="448" rx="11" ry="7" fill="#D4A843"/>
+      </svg>
+    </div>
+    <div class="hero-price-tag">
+      <div class="price-label">Starting From</div>
+      <div class="price-val">₹3,500 <span>₹4,500</span></div>
+    </div>
+    <div class="hero-rating-tag">
+      <div>
+        <div class="rating-num">4.9</div>
+        <div class="stars">★★★★★</div>
+        <div class="rating-text">500+ reviews</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span class="marquee-item">⚔ Genuine Steel<span class="mdot"></span></span>
+    <span class="marquee-item">🏅 60+ Years of Craft<span class="mdot"></span></span>
+    <span class="marquee-item">🚚 India Post Delivery<span class="mdot"></span></span>
+    <span class="marquee-item">✍ Custom Engraving<span class="mdot"></span></span>
+    <span class="marquee-item">🔒 Secure Payment<span class="mdot"></span></span>
+    <span class="marquee-item">📦 Safe Packaging<span class="mdot"></span></span>
+    <span class="marquee-item">⚔ Genuine Steel<span class="mdot"></span></span>
+    <span class="marquee-item">🏅 60+ Years of Craft<span class="mdot"></span></span>
+    <span class="marquee-item">🚚 India Post Delivery<span class="mdot"></span></span>
+    <span class="marquee-item">✍ Custom Engraving<span class="mdot"></span></span>
+    <span class="marquee-item">🔒 Secure Payment<span class="mdot"></span></span>
+    <span class="marquee-item">📦 Safe Packaging<span class="mdot"></span></span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item reveal">
+    <div class="stat-number" data-target="60">0</div>
+    <div class="stat-label">Years of Experience</div>
+  </div>
+  <div class="stat-item reveal reveal-d1">
+    <div class="stat-number" data-target="5000">0</div>
+    <div class="stat-label">Happy Customers</div>
+  </div>
+  <div class="stat-item reveal reveal-d2">
+    <div class="stat-number" data-target="120">0</div>
+    <div class="stat-label">Sword Designs</div>
+  </div>
+  <div class="stat-item reveal reveal-d3">
+    <div class="stat-number" data-target="28">0</div>
+    <div class="stat-label">States Delivered</div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<div class="categories" id="categories">
+  <div class="reveal">
+    <div class="section-tag">Browse by Type</div>
+    <h2 class="section-title">Shop by Category</h2>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card reveal">
+      <span class="cat-icon">⚔️</span>
+      <div class="cat-name">Talwar</div>
+      <div class="cat-count">24 Products</div>
+    </div>
+    <div class="cat-card reveal reveal-d1">
+      <span class="cat-icon">🗡️</span>
+      <div class="cat-name">Kirpan</div>
+      <div class="cat-count">18 Products</div>
+    </div>
+    <div class="cat-card reveal reveal-d2">
+      <span class="cat-icon">🔱</span>
+      <div class="cat-name">Decorative</div>
+      <div class="cat-count">32 Products</div>
+    </div>
+    <div class="cat-card reveal reveal-d3">
+      <span class="cat-icon">✨</span>
+      <div class="cat-name">Custom Order</div>
+      <div class="cat-count">Your Design</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products" id="shop">
+  <div class="products-header">
+    <div class="reveal">
+      <div class="section-tag">Our Collection</div>
+      <h2 class="section-title">Featured Products</h2>
+    </div>
+    <a href="#" class="view-all reveal">View All Products →</a>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card reveal">
+      <div class="prod-img" style="background:#EDE8DF;">
+        <div class="prod-emoji">⚔️</div>
+        <span class="prod-badge badge-best">Bestseller</span>
+        <div class="prod-wishlist">♡</div>
+      </div>
+      <div class="prod-info">
+        <div class="prod-cat">Mughal Collection</div>
+        <div class="prod-name">Mughal Shamsheer</div>
+        <div class="prod-material">Damascus Steel · 90cm Blade</div>
+        <div class="prod-stars">
+          <span style="color:#F5A623;font-size:13px;">★★★★★</span>
+          <span>(42)</span>
+        </div>
+        <div class="prod-footer">
+          <div><span class="prod-price">₹8,500</span><span class="prod-price-old">₹11,000</span></div>
+          <button class="prod-add" onclick="this.textContent='✓';this.style.background='var(--green)';setTimeout(()=>{this.textContent='+';this.style.background=''},1400)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-d1">
+      <div class="prod-img" style="background:#E8EEE8;">
+        <div class="prod-emoji">🗡️</div>
+        <span class="prod-badge badge-new">New</span>
+        <div class="prod-wishlist">♡</div>
+      </div>
+      <div class="prod-info">
+        <div class="prod-cat">Sikh Heritage</div>
+        <div class="prod-name">Rajput Kirpan</div>
+        <div class="prod-material">Carbon Steel · 45cm Blade</div>
+        <div class="prod-stars">
+          <span style="color:#F5A623;font-size:13px;">★★★★★</span>
+          <span>(28)</span>
+        </div>
+        <div class="prod-footer">
+          <div><span class="prod-price">₹4,200</span></div>
+          <button class="prod-add" onclick="this.textContent='✓';this.style.background='var(--green)';setTimeout(()=>{this.textContent='+';this.style.background=''},1400)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-d2">
+      <div class="prod-img" style="background:#EEE8E8;">
+        <div class="prod-emoji">🏺</div>
+        <span class="prod-badge badge-sale">−20%</span>
+        <div class="prod-wishlist">♡</div>
+      </div>
+      <div class="prod-info">
+        <div class="prod-cat">Decorative</div>
+        <div class="prod-name">Wall Display Set</div>
+        <div class="prod-material">Stainless Steel · Pair</div>
+        <div class="prod-stars">
+          <span style="color:#F5A623;font-size:13px;">★★★★☆</span>
+          <span>(17)</span>
+        </div>
+        <div class="prod-footer">
+          <div><span class="prod-price">₹6,400</span><span class="prod-price-old">₹8,000</span></div>
+          <button class="prod-add" onclick="this.textContent='✓';this.style.background='var(--green)';setTimeout(()=>{this.textContent='+';this.style.background=''},1400)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-d3">
+      <div class="prod-img" style="background:#E8ECF0;">
+        <div class="prod-emoji">🔱</div>
+        <div class="prod-wishlist">♡</div>
+      </div>
+      <div class="prod-info">
+        <div class="prod-cat">Ceremonial</div>
+        <div class="prod-name">Gold-Hilt Talwar</div>
+        <div class="prod-material">High Carbon · 80cm Blade</div>
+        <div class="prod-stars">
+          <span style="color:#F5A623;font-size:13px;">★★★★★</span>
+          <span>(63)</span>
+        </div>
+        <div class="prod-footer">
+          <div><span class="prod-price">₹15,000</span></div>
+          <button class="prod-add" onclick="this.textContent='✓';this.style.background='var(--green)';setTimeout(()=>{this.textContent='+';this.style.background=''},1400)">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCT -->
+<section class="featured">
+  <div class="featured-inner reveal">
+    <div class="featured-img">
+      <div class="feat-sword">⚔️</div>
+    </div>
+    <div class="featured-content">
+      <div class="feat-tag">⭐ Editor's Pick</div>
+      <h2 class="feat-title">The Agra <em>Heritage</em> Talwar</h2>
+      <p class="feat-desc">Our most iconic piece — hand-forged by master craftsman Ustad Rashid Khan using a 200-year-old technique passed down through generations. Damascus steel with a hand-engraved walnut handle.</p>
+      <div class="feat-specs">
+        <div class="spec"><strong>Damascus</strong>Steel Type</div>
+        <div class="spec"><strong>95 cm</strong>Blade Length</div>
+        <div class="spec"><strong>1.8 kg</strong>Weight</div>
+        <div class="spec"><strong>Hand</strong>Engraved</div>
+      </div>
+      <div class="feat-price-row">
+        <span class="feat-price">₹22,000</span>
+        <span class="feat-price-old">₹28,000</span>
+      </div>
+      <button class="btn-gold">Add to Cart &nbsp; 🛒</button>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US / FEATURES -->
+<section class="features" id="about">
+  <div class="reveal" style="text-align:center;max-width:500px;margin:0 auto;">
+    <div class="section-tag" style="justify-content:center;">Why Choose Us</div>
+    <h2 class="section-title">Agra's Most Trusted<br>Sword Makers</h2>
+  </div>
+  <div class="features-grid" style="margin-top:52px;">
+    <div class="feat-card reveal">
+      <div class="feat-ico">⚔️</div>
+      <h3>Genuine Steel</h3>
+      <p>Every blade is crafted from certified carbon or Damascus steel. No compromises on material quality, ever.</p>
+    </div>
+    <div class="feat-card reveal reveal-d1">
+      <div class="feat-ico">✍️</div>
+      <h3>Custom Engraving</h3>
+      <p>Personalize your sword with names, dates, or motifs. Our artisans hand-engrave every detail with precision.</p>
+    </div>
+    <div class="feat-card reveal reveal-d2">
+      <div class="feat-ico">🚚</div>
+      <h3>India Post Delivery</h3>
+      <p>We ship via India Post across all 28 states. Every order gets a tracking number and secure packaging.</p>
+    </div>
+    <div class="feat-card reveal reveal-d3">
+      <div class="feat-ico">🏅</div>
+      <h3>60+ Years of Craft</h3>
+      <p>Since 1962, three generations of our family have been forging swords in Agra using traditional techniques.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="process">
+  <div class="reveal" style="text-align:center;max-width:480px;margin:0 auto;">
+    <div class="section-tag" style="justify-content:center;">How It Works</div>
+    <h2 class="section-title">Order in 5 Simple Steps</h2>
+  </div>
+  <div class="process-grid">
+    <div class="proc-step reveal">
+      <div class="proc-num"><div class="proc-icon">🛍</div></div>
+      <div class="proc-title">Browse & Select</div>
+      <div class="proc-desc">Pick your sword from our collection or start a custom order.</div>
+    </div>
+    <div class="proc-step reveal reveal-d1">
+      <div class="proc-num"><div class="proc-icon">💳</div></div>
+      <div class="proc-title">Secure Payment</div>
+      <div class="proc-desc">Pay safely via UPI, card, or net banking through Razorpay.</div>
+    </div>
+    <div class="proc-step reveal reveal-d2">
+      <div class="proc-num"><div class="proc-icon">⚒️</div></div>
+      <div class="proc-title">Crafting Begins</div>
+      <div class="proc-desc">Our master craftsmen start forging your order immediately.</div>
+    </div>
+    <div class="proc-step reveal reveal-d3">
+      <div class="proc-num"><div class="proc-icon">📦</div></div>
+      <div class="proc-title">Packed Safely</div>
+      <div class="proc-desc">Wrapped in protective foam and a custom wooden box.</div>
+    </div>
+    <div class="proc-step reveal reveal-d4">
+      <div class="proc-num"><div class="proc-icon">🚚</div></div>
+      <div class="proc-title">Delivered Home</div>
+      <div class="proc-desc">India Post delivers to your doorstep with live tracking.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="reveal">
+    <div class="section-tag">Customer Reviews</div>
+    <h2 class="section-title">What Our Customers Say</h2>
+    <p class="section-sub">Over 500 verified reviews from happy customers across India.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-quote">"</div>
+      <div class="testi-text">Absolutely stunning craftsmanship. The Mughal Shamsheer I ordered exceeded every expectation. The Damascus pattern on the blade is breathtaking. Worth every rupee!</div>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-author">
+        <div class="testi-avatar">👨</div>
+        <div>
+          <div class="testi-name">Rajesh Sharma</div>
+          <div class="testi-city">New Delhi</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal reveal-d1">
+      <div class="testi-quote">"</div>
+      <div class="testi-text">Got the kirpan custom-engraved with my family name. The engraving is clean, deep, and exactly what I wanted. Delivery via India Post was fast and packaging was superb.</div>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-author">
+        <div class="testi-avatar">👳</div>
+        <div>
+          <div class="testi-name">Gurpreet Singh</div>
+          <div class="testi-city">Amritsar</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal reveal-d2">
+      <div class="testi-quote">"</div>
+      <div class="testi-text">Bought the decorative wall set as a gift. My brother was speechless. The quality for this price is unreal. I'll definitely be ordering again — maybe a custom one this time.</div>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-author">
+        <div class="testi-avatar">👨‍💼</div>
+        <div>
+          <div class="testi-name">Amir Khan</div>
+          <div class="testi-city">Mumbai</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM ORDER CTA -->
+<div class="custom-cta" id="custom">
+  <div class="custom-inner reveal">
+    <div>
+      <div class="custom-tag">✨ Custom Orders Welcome</div>
+      <h2 class="custom-title">Design Your Own<br><em>Sword</em></h2>
+      <p class="custom-desc">Choose your steel, blade length, handle material, and engrave anything you want — a name, a date, a family crest. Our craftsmen will make it exactly how you envision it.</p>
+    </div>
+    <div class="custom-btns">
+      <button class="btn-whatsapp">💬 Chat on WhatsApp</button>
+      <button class="btn-ghost">Call Us Directly</button>
+    </div>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <div class="nl-text">
+    <h3>Get Exclusive Offers</h3>
+    <p>Festival discounts, new arrivals, and care tips delivered to your inbox.</p>
+  </div>
+  <div class="nl-form">
+    <input class="nl-input" type="email" placeholder="Enter your email address">
+    <button class="nl-btn">Subscribe</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Agra <em>Blade</em> Co.</div>
+      <p class="footer-about">Three generations of master craftsmen, forging authentic swords and talwars in Agra since 1962. Every blade is a piece of living history.</p>
+      <div class="footer-socials">
+        <button class="social-btn">📘</button>
+        <button class="social-btn">📸</button>
+        <button class="social-btn">▶️</button>
+        <button class="social-btn">💬</button>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul class="footer-links">
+        <li><a href="#">All Products</a></li>
+        <li><a href="#">Talwar</a></li>
+        <li><a href="#">Kirpan</a></li>
+        <li><a href="#">Decorative</a></li>
+        <li><a href="#">Custom Order</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <ul class="footer-links">
+        <li><a href="#">Track Your Order</a></li>
+        <li><a href="#">Shipping Policy</a></li>
+        <li><a href="#">Return Policy</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul class="footer-links">
+        <li><a href="#">📍 Agra, Uttar Pradesh</a></li>
+        <li><a href="#">📞 +91 98765 43210</a></li>
+        <li><a href="#">💬 WhatsApp</a></li>
+        <li><a href="#">✉ info@agrablades.in</a></li>
+        <li><a href="#">🕐 Mon–Sat, 9am–7pm</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Agra Blade Co. All rights reserved.</div>
+    <div class="footer-payments">
+      <span class="pay-chip">UPI</span>
+      <span class="pay-chip">Visa</span>
+      <span class="pay-chip">Mastercard</span>
+      <span class="pay-chip">RuPay</span>
+      <span class="pay-chip">Net Banking</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+reveals.forEach(r => observer.observe(r));
+
+// Counter animation
+const counters = document.querySelectorAll('[data-target]');
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.dataset.target);
+    const suffix = target >= 1000 ? '+' : (target === 60 ? '+' : '+');
+    let current = 0;
+    const step = Math.ceil(target / 55);
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = current.toLocaleString() + suffix;
+      if (current >= target) clearInterval(timer);
+    }, 28);
+    counterObserver.unobserve(el);
+  });
+}, { threshold: 0.4 });
+counters.forEach(c => counterObserver.observe(c));
+
+// Add to cart toast
+document.querySelectorAll('.prod-add').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const badge = document.querySelector('.cart-badge');
+    badge.textContent = parseInt(badge.textContent) + 1;
+    badge.style.transform = 'scale(1.4)';
+    setTimeout(() => badge.style.transform = '', 300);
+  });
+});
+
+// Wishlist toggle
+document.querySelectorAll('.prod-wishlist').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (this.textContent === '♡') { this.textContent = '❤️'; }
+    else { this.textContent = '♡'; }
+  });
+});
+
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  nav.style.boxShadow = window.scrollY > 10 ? '0 4px 24px rgba(0,0,0,0.1)' : '0 2px 8px rgba(0,0,0,0.06)';
+});
+
+// Newsletter button
+document.querySelector('.nl-btn').addEventListener('click', function() {
+  const input = document.querySelector('.nl-input');
+  if (input.value.includes('@')) {
+    this.textContent = '✓ Subscribed!';
+    this.style.background = '#2A5C2A';
+    input.value = '';
+    setTimeout(() => { this.textContent = 'Subscribe'; this.style.background = ''; }, 3000);
+  } else {
+    input.style.borderColor = '#8B2020';
+    setTimeout(() => input.style.borderColor = '', 2000);
+  }
+});
+</script>
+</body>
+</html>
